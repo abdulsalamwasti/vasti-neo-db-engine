@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  neo4j:
+    image: neo4j:5.13
+    container_name: neo4j-db
+    ports:
+      - "7474:7474"  # Browser UI
+      - "7687:7687"  # Bolt protocol
+    volumes:
+      - ./docker/neo4j.conf:/var/lib/neo4j/conf/neo4j.conf
+      - ./docker/plugins:/plugins
+      - ./src/main/resources:/import
+    environment:
+      NEO4J_AUTH: neo4j/admin123
+      NEO4J_PLUGINS: '["apoc", "graph-data-science"]'

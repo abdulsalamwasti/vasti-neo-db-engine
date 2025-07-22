@@ -1,0 +1,19 @@
+# Define indexes/constraints
+constraints:
+  - type: UNIQUE
+    label: User
+    property: id
+  - type: UNIQUE
+    label: Product
+    property: sku
+
+# Define relationships
+relationships:
+  - type: PURCHASED
+    from: User
+    to: Product
+    properties:
+      - name: date
+        type: DATE
+      - name: quantity
+        type: INTEGER
