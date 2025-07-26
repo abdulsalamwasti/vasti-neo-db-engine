@@ -1,19 +1,30 @@
-# Define indexes/constraints
-constraints:
-  - type: UNIQUE
-    label: User
-    property: id
-  - type: UNIQUE
-    label: Product
-    property: sku
+# Neo4j Data Configuration YAML
+version: 1.0
 
-# Define relationships
-relationships:
-  - type: PURCHASED
-    from: User
-    to: Product
-    properties:
-      - name: date
-        type: DATE
-      - name: quantity
-        type: INTEGER
+# Schema Definition
+schema:
+  constraints:
+    - type: UNIQUE
+      label: User
+      property: id
+    - type: UNIQUE
+      label: Product
+      property: sku
+
+  relationships:
+    - type: PURCHASED
+      from: User
+      to: Product
+      properties:
+        - name: date
+          type: DATE
+        - name: quantity
+          type: INTEGER
+        - name: total
+          type: FLOAT
+    - type: FRIENDS_WITH
+      from: User
+      to: User
+      properties:
+        - name: since
+          type: DATE

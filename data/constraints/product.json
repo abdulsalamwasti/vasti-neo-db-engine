@@ -1,0 +1,4 @@
+[
+  { "sku": "P100", "name": "Laptop", "price": 999 },
+  { "sku": "P200", "name": "Phone", "price": 699 }
+]
